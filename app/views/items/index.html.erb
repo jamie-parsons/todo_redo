@@ -1,0 +1,13 @@
+<h1> ToDo Items </h1>
+<p><%= link_to 'Add New Item', new_item_path %></p>
+<% @items.each do |item| %>
+    <h3><%= item.name %></h3>
+    <h3><%= item.deadline %></h3>
+    <h3><%= item.detail %></h3>
+    <%= link_to 'Show Item', item_path(item) %>
+    <%= link_to 'Edit Item', edit_item_path(item) %>
+    <%= link_to 'Delete Item', item_path(item), method: :delete %>
+
+<% end %>
+
+

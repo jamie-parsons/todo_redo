@@ -1,0 +1,13 @@
+<h1> Edit Item ToDo </h1>
+<%= form_for @item do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :deadline %>
+  <%= f.text_field :deadline %>
+
+  <%= f.label :detail %>
+  <%= f.text_field :detail %>
+
+  <%= f.submit %>
+<% end %>
