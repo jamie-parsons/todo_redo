@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :set_item, except: [:create, :new, :index
+]
   def index
     @items = Item.all
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -12,11 +13,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
 
     if Item.update(item_params)
       redirect_to items_path
@@ -36,7 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     flash[:notice] = 'Item Deleted!'
     redirect_to items_path
@@ -46,5 +44,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :deadline, :detail)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
